@@ -1,0 +1,12 @@
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\bin\Debug\soruBankasi.exe.config
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\bin\Debug\soruBankasi.exe
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\bin\Debug\soruBankasi.pdb
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.csproj.AssemblyReference.cache
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.csproj.SuggestedBindingRedirects.cache
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.Form1.resources
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.Properties.Resources.resources
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.csproj.GenerateResource.cache
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.csproj.CoreCompileInputs.cache
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.exe
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.pdb
+C:\Users\cicek\Desktop\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmOgretmen.resources
