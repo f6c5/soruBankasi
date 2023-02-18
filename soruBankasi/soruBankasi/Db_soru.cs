@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,11 +14,27 @@ namespace soruBankasi
     {
         public void basla()
         {
-            string Url = " datasource=localhost;port=3306;username=root;password=1234;database=db_soru";
-           
+            string connectionString = "server=localhost;database=db_soru;uid=root;password=1234;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_ogretmenler", connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id");
+                            string name = reader.GetString("name");
+
+                            Console.WriteLine($"ID: {id}, Name: {name}");
+                        }
+                    }
+                }
+            }
 
         }
-
-
     }
 }
