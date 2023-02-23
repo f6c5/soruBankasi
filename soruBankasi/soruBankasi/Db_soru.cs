@@ -70,8 +70,6 @@ namespace soruBankasi
             return ogretmen;
         }
 
-
-
         public void addOgrenci(Ogrenci ogrenci)
         {
             string query = "INSERT INTO tbl_ogrenciler (name, no, sinif, sube) VALUES (@name, @no, @sinif, @sube)";
@@ -178,6 +176,7 @@ namespace soruBankasi
 
             return ogrenciler;
         }
+
 
     }
 }
