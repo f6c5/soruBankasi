@@ -19,15 +19,7 @@ namespace soruBankasi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Data.ogrenciler.Add(new Ogrenci(0, "ayşe", "538", "12", "b"));
-            Data.ogrenciler.Add(new Ogrenci(1, "berat", "432", "11", "a"));
-            Data.ogrenciler.Add(new Ogrenci(2, "ali", "438", "11", "f"));
-            Data.ogrenciler.Add(new Ogrenci(3, "mehmet", "111", "12", "a"));
-            Data.ogrenciler.Add(new Ogrenci(4, "acun", "123", "10", "b"));
 
-            Data.ogretmenler.Add(new Ogretmen(0, "ferhat", "539", "13579"));
-            Data.ogretmenler.Add(new Ogretmen(0, "aylin", "524", "456"));
-            Data.ogretmenler.Add(new Ogretmen(0, "ümit", "124", "1234"));
         }
 
         bool isOgretmen;
@@ -53,100 +45,54 @@ namespace soruBankasi
 
         private void btn_kayit_Click(object sender, EventArgs e)
         {
-            bool isKayitli = false;
+
+            Db_soru db_Soru = new Db_soru();
 
             if (isOgretmen == true)
             {
-                for (int i = 0; i < Data.ogretmenler.Count; i++)
-                {
-                    if (Data.ogretmenler[i].getNo() == txt_ogretmen_no.Text)
-                    {
-                        isKayitli = true;
-                        break;
-                    }
-                };
-
-                if (isKayitli == true)
-                {
-
-                    MessageBox.Show("böyle bir öğretmen zaten kayıtlı");
-                }
-                else
-                {
-                    Data.ogretmenler.Add(new Ogretmen(Data.ogretmenler.Count, txt_ogretmen_ad.Text, txt_ogretmen_no.Text, txt_ogretmen_sifre.Text));
-                    MessageBox.Show("kayıt başarılı");
-                }
-
+                db_Soru.addOgretmen(new Ogretmen(txt_ogretmen_ad.Text, txt_ogretmen_no.Text, txt_ogretmen_sifre.Text));
             }
             else if (isOgretmen == false)
             {
-                for (int i = 0; i < Data.ogrenciler.Count; i++)
-                {
-                    if (Data.ogrenciler[i].getNo() == txt_ogrenci_no.Text)
-                    {
-                        MessageBox.Show("böyle bir öğrenci zaten kayıtlı");
-                        isKayitli = true;
-                    }
-                };
-
-                if (isKayitli == false)
-                {
-                    Data.ogrenciler.Add(new Ogrenci(Data.ogrenciler.Count, txt_ogrenci_ad.Text, txt_ogrenci_no.Text, txt_ogrenci_sinif.Text, txt_ogrenci_sube.Text));
-                    MessageBox.Show("kayıt başarılı");
-                }
+                db_Soru.addOgrenci(new Ogrenci(txt_ogrenci_ad.Text,txt_ogrenci_no.Text,txt_ogrenci_sinif.Text,txt_ogrenci_sube.Text));
             }
-
-
         }
 
         private void btn_giris_Click(object sender, EventArgs e)
         {
-            bool isKayitli = false;
+            Db_soru db_Soru = new Db_soru();
 
             if (isOgretmen == true)
             {
-                for (int i = 0; i < Data.ogretmenler.Count; i++)
-                {
-                    if (Data.ogretmenler[i].getNo() == txt_ogretmen_no.Text && Data.ogretmenler[i].getSifre() == txt_ogretmen_sifre.Text)
-                    {
-                        isKayitli = true;
-                        Data.DOgretmen = Data.ogretmenler[i];
-                        break;
-                    }
-                }
 
-                if (isKayitli == true)
+                Ogretmen ogretmen = db_Soru.logInOgretmen(txt_ogretmen_no.Text, txt_ogretmen_sifre.Text);
+
+                if (ogretmen != null)
                 {
+                    Data.DOgretmen = ogretmen;
                     FrmOgretmen frmOgretmen = new FrmOgretmen();
                     frmOgretmen.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("böyle bir kişi yok");
+                    MessageBox.Show("böyle bir öğretmen kayıtlı değil");
                 }
             }
             else if (isOgretmen == false)
             {
-                for (int i = 0; i < Data.ogrenciler.Count; i++)
-                {
-                    if (Data.ogrenciler[i].getNo() == txt_ogrenci_no.Text)
-                    {
-                        isKayitli = true;
-                        Data.DOgrenci = Data.ogrenciler[i];
-                        break;
-                    }
-                }
+                Ogrenci ogrenci = db_Soru.logInOgrenci(txt_ogrenci_no.Text);
 
-                if (isKayitli == true)
+                if (ogrenci != null)
                 {
+                    Data.DOgrenci = ogrenci;
                     FrmOgrenci frmOgrenci = new FrmOgrenci();
                     frmOgrenci.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("böyle bir kişi yok");
+                    MessageBox.Show("böyle bir öğrenci kayıtlı değil");
                 }
             }
         }

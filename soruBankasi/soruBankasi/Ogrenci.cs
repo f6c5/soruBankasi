@@ -14,10 +14,14 @@ namespace soruBankasi
         private string sinif;
         private string sube;
 
-        public Ogrenci()
+        public Ogrenci(string name, string no, string sinif, string sube)
         {
-
+            this.name = name;
+            this.no = no;
+            this.sinif = sinif;
+            this.sube = sube;
         }
+
         public Ogrenci(int id ,string name, string no, string sinif, string sube)
         {
             this.id = id;

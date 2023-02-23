@@ -42,7 +42,6 @@ namespace soruBankasi
                 Data.DOgretmen.setName(txt_ad.Text);
                 Data.DOgretmen.setNo(txt_no.Text);
                 Data.DOgretmen.setSifre(txt_sifre.Text);
-                Data.ogretmenler[Data.DOgretmen.getId()] = Data.DOgretmen;
 
                 txt_ad.Enabled = false;
                 txt_no.Enabled = false;
@@ -84,31 +83,31 @@ namespace soruBankasi
         private void OgrenciList()
         {
 
-            foreach (Ogrenci ogrenci in Data.ogrenciler)
-            {
-                Panel panel = new Panel();
-                Label lbl1 = new Label();
-                Label lbl2 = new Label();
-                Label lbl3 = new Label();
+            //foreach (Ogrenci ogrenci in Data.ogrenciler)
+            //{
+            //    Panel panel = new Panel();
+            //    Label lbl1 = new Label();
+            //    Label lbl2 = new Label();
+            //    Label lbl3 = new Label();
 
-                panel.BackColor = Color.Teal;
-                panel.Margin = new Padding(20);
+            //    panel.BackColor = Color.Teal;
+            //    panel.Margin = new Padding(20);
 
-                panel.Size = new Size(200, 270);
-                panel.Controls.Add(lbl1);
-                panel.Controls.Add(lbl2);
-                panel.Controls.Add(lbl3);
+            //    panel.Size = new Size(200, 270);
+            //    panel.Controls.Add(lbl1);
+            //    panel.Controls.Add(lbl2);
+            //    panel.Controls.Add(lbl3);
 
-                lbl1.Location = new Point(70, 70);
-                lbl2.Location = new Point(70, 140);
-                lbl3.Location = new Point(70, 210);
+            //    lbl1.Location = new Point(70, 70);
+            //    lbl2.Location = new Point(70, 140);
+            //    lbl3.Location = new Point(70, 210);
 
-                lbl1.Text = ogrenci.getName();
-                lbl2.Text = ogrenci.getNo();
-                lbl3.Text = ogrenci.getSinif() + " " + ogrenci.getSube();
+            //    lbl1.Text = ogrenci.getName();
+            //    lbl2.Text = ogrenci.getNo();
+            //    lbl3.Text = ogrenci.getSinif() + " " + ogrenci.getSube();
 
-                flp_ogrenciler.Controls.Add(panel);
-            }
+            //    flp_ogrenciler.Controls.Add(panel);
+            //}
         }
         private void SoruList()
         {

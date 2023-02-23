@@ -13,9 +13,11 @@ namespace soruBankasi
         private string no;
         private string sifre;
 
-        public Ogretmen()
+        public Ogretmen( string name, string no, string sifre)
         {
-
+            this.name = name;
+            this.no = no;
+            this.sifre = sifre;
         }
 
         public Ogretmen(int id,string name, string no, string sifre)
