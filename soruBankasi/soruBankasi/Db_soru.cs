@@ -15,7 +15,7 @@ namespace soruBankasi
 
         string connectionString = "server=localhost;database=db_soru;uid=root;password=1234;";
 
-
+        //***********************          login          **************************
         public Ogrenci logInOgrenci(string no)
         {
             Ogrenci ogrenci;
@@ -177,6 +177,81 @@ namespace soruBankasi
             return ogrenciler;
         }
 
+        private void deleteOgrenci(int ogrenciID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
 
+                string query = "DELETE FROM tbl_ogrenciler WHERE id = " + ogrenciID + "";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+
+                    int affectedRows = command.ExecuteNonQuery();
+                    if (affectedRows > 0)
+                    {
+                        MessageBox.Show("öğrenci silindi");
+                    }
+                    else
+                    {
+                        MessageBox.Show("öğrenci silinemedi");
+                    }
+                }
+            }
+        }
+
+        private void updateOgrenci(int ogrenciID, Ogrenci yeniOgrenci)
+        {
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "UPDATE tbl_ogrenciler SET name = @name, no = @no, sinif = @sinif, sube = @sube WHERE id = @id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", ogrenciID);
+                    command.Parameters.AddWithValue("@name", yeniOgrenci.getName());
+                    command.Parameters.AddWithValue("@no", yeniOgrenci.getNo());
+                    command.Parameters.AddWithValue("@sinif", yeniOgrenci.getSinif());
+                    command.Parameters.AddWithValue("@sube", yeniOgrenci.getSube());
+
+                    int affectedRows = command.ExecuteNonQuery();
+
+                    if (affectedRows > 0)
+                    {
+                        MessageBox.Show("öğrenci güncellendi");
+                    }
+                    else
+                    {
+                        MessageBox.Show("öğrenci güncellenemedi");
+                    }
+                }
+            }
+        }
+
+        private Ogrenci getOgrenci(int ogrenciID)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT * FROM tbl_ogrenciler WHERE id = " + ogrenciID + "";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Ogrenci(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("sinif"), reader.GetString("sube"));
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
