@@ -50,3 +50,5 @@ C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBa
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\bin\Debug\System.IO.Pipelines.dll
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\bin\Debug\Google.Protobuf.pdb
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\bin\Debug\System.IO.Pipelines.xml
+C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmOgrenciList.resources
+C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmSinavList.resources

@@ -13,7 +13,7 @@ namespace soruBankasi
         private int ogrenciId;
         private float soruPuan;
         private float ogrenciPuan = 0;
-        private List<char> cevaplar;
+        private List<string> cevaplar;
 
         public SinavK(int id, List<Soru> sorular)
         {
@@ -29,7 +29,7 @@ namespace soruBankasi
 
             for (int i = 0; i < sorular.Count; i++)
             {
-                if (cevaplar[i] == sorular[i].getDogruCevap())
+                if (cevaplar[i] == sorular[i].getCevap())
                 {
                     this.ogrenciPuan += this.soruPuan;
                 }
@@ -53,7 +53,7 @@ namespace soruBankasi
             this.ogrenciId = id;
         }
 
-        public void setCevap(int soruNumara, char cevap)
+        public void setCevap(int soruNumara, string cevap)
         {
             this.cevaplar[soruNumara] = cevap;
         }
