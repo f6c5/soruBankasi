@@ -31,8 +31,8 @@
             this.pnl_app = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.btn_aktif_sinav = new System.Windows.Forms.Button();
             this.btn_gecmis_sinav = new System.Windows.Forms.Button();
+            this.btn_aktif_sinav = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,15 +66,7 @@
             this.btn_exit.TabIndex = 3;
             this.btn_exit.Text = "Çıkış yap";
             this.btn_exit.UseVisualStyleBackColor = true;
-            // 
-            // btn_aktif_sinav
-            // 
-            this.btn_aktif_sinav.Location = new System.Drawing.Point(40, 61);
-            this.btn_aktif_sinav.Name = "btn_aktif_sinav";
-            this.btn_aktif_sinav.Size = new System.Drawing.Size(199, 32);
-            this.btn_aktif_sinav.TabIndex = 2;
-            this.btn_aktif_sinav.Text = "Aktif Sınavlar";
-            this.btn_aktif_sinav.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // btn_gecmis_sinav
             // 
@@ -84,6 +76,17 @@
             this.btn_gecmis_sinav.TabIndex = 2;
             this.btn_gecmis_sinav.Text = "Geçmiş Sınavlar";
             this.btn_gecmis_sinav.UseVisualStyleBackColor = true;
+            this.btn_gecmis_sinav.Click += new System.EventHandler(this.btn_gecmis_sinav_Click);
+            // 
+            // btn_aktif_sinav
+            // 
+            this.btn_aktif_sinav.Location = new System.Drawing.Point(40, 61);
+            this.btn_aktif_sinav.Name = "btn_aktif_sinav";
+            this.btn_aktif_sinav.Size = new System.Drawing.Size(199, 32);
+            this.btn_aktif_sinav.TabIndex = 2;
+            this.btn_aktif_sinav.Text = "Aktif Sınavlar";
+            this.btn_aktif_sinav.UseVisualStyleBackColor = true;
+            this.btn_aktif_sinav.Click += new System.EventHandler(this.btn_aktif_sinav_Click);
             // 
             // FrmOgrenci
             // 
@@ -94,7 +97,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmOgrenci";
             this.Text = "FrmOgrenci";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmOgrenci_FormClosed);

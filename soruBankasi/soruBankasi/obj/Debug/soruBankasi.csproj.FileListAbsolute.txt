@@ -52,3 +52,5 @@ C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\bin\Debug\Google
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\bin\Debug\System.IO.Pipelines.xml
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmOgrenciList.resources
 C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmSinavList.resources
+C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmAktifSinav.resources
+C:\Users\cicek\Desktop\beratSoruBankasi\soruBankasi\soruBankasi\obj\Debug\soruBankasi.FrmOgrenci.resources

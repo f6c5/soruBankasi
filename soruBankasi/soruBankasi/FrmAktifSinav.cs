@@ -16,6 +16,14 @@ namespace soruBankasi
         {
             InitializeComponent();
         }
+        Db_soru db = new Db_soru();
+        List<Sinav> sinavlarim = new List<Sinav>();
+        Soru soru;
+
+        private void FrmAktifSinav_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btn_basla_bitir_Click(object sender, EventArgs e)
         {
@@ -30,6 +38,16 @@ namespace soruBankasi
         private void cb_sinav_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void refreshExam()
+        {
+            cb_exam.Items.Clear();
+            sinavlarim = db.getSinavlarim(Data.DOgretmen.getId());
+            foreach (Sinav sinav in sinavlarim)
+            {
+                cb_exam.Items.Add(sinav.getSinavAdi());
+            }
         }
     }
 }

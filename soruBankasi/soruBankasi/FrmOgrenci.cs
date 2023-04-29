@@ -19,6 +19,25 @@ namespace soruBankasi
 
         Form activeForm;
 
+        private void FrmOgrenci_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void btn_aktif_sinav_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmAktifSinav());
+        }
+
+        private void btn_gecmis_sinav_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+
+        }
         public void openChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -34,10 +53,6 @@ namespace soruBankasi
             pnl_app.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-        private void FrmOgrenci_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
         }
     }
 }

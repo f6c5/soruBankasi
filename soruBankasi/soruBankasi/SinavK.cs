@@ -57,5 +57,6 @@ namespace soruBankasi
         {
             this.cevaplar[soruNumara] = cevap;
         }
+        public void setSinavSorulari(List<Soru> sorular) { this.sorular = sorular; }
     }
 }

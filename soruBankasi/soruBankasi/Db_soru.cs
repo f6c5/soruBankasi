@@ -389,6 +389,50 @@ namespace soruBankasi
             return sinavlar;
 
         }
+        public List<SinavK> getSinavlar(DateTime sinav_tarihi)
+        {
+            List<SinavK> sinavlar = new List<SinavK>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_sinav HAVING sinav_tarihi > @sinav_tarihi ", connection))
+                {
+                    command.Parameters.AddWithValue("@sinav_tarihi", sinav_tarihi);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            sinavlar.Add(new Sinav(reader.GetInt32("id"), reader.GetInt32("ogretmen_id"), reader.GetString("sinav_adi"), reader.GetDateTime("sinav_tarihi")));
+                        }
+                    }
+                }
+
+                foreach (SinavK sinav in sinavlar)
+                {
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_soru HAVING sinav_id= @sinav_id ", connection))
+                    {
+                        command.Parameters.AddWithValue("@sinav_id", sinav.getId());
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Soru> sorular = new List<Soru>();
+                            while (reader.Read())
+                            {
+                                sorular.Add(new Soru(reader.GetInt32("id"), reader.GetInt32("sinav_id"), reader.GetString("metin"), reader.GetString("a"), reader.GetString("b"), reader.GetString("c"), reader.GetString("d"), reader.GetString("e"), reader.GetString("cevap")));
+                            }
+                            sinav.setSinavSorulari(sorular);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+            return sinavlar;
+
+        }
         public void addSinav(string sinavAdi, int ogretmenId, DateTime sinavTarihi)
         {
             string query = "INSERT INTO tbl_sinav (ogretmen_id, sinav_adi, sinav_tarihi) VALUES (@ogretmen_id, @sinav_adi, @sinav_tarihi)";
