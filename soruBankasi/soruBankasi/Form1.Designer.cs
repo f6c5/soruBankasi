@@ -45,6 +45,8 @@
             this.txt_ogretmen_sifre = new System.Windows.Forms.TextBox();
             this.btn_giris = new System.Windows.Forms.Button();
             this.pnl_ogretmen = new System.Windows.Forms.Panel();
+            this.txt_ogretmen_branch = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btn_pnl_ogrenci = new System.Windows.Forms.Button();
             this.btn_pnl_ogretmen = new System.Windows.Forms.Button();
             this.pnl_ogrenci = new System.Windows.Forms.Panel();
@@ -206,9 +208,11 @@
             // pnl_ogretmen
             // 
             this.pnl_ogretmen.Controls.Add(this.txt_ogretmen_ad);
+            this.pnl_ogretmen.Controls.Add(this.txt_ogretmen_branch);
             this.pnl_ogretmen.Controls.Add(this.txt_ogretmen_sifre);
             this.pnl_ogretmen.Controls.Add(this.label5);
             this.pnl_ogretmen.Controls.Add(this.label6);
+            this.pnl_ogretmen.Controls.Add(this.label8);
             this.pnl_ogretmen.Controls.Add(this.txt_ogretmen_no);
             this.pnl_ogretmen.Controls.Add(this.label7);
             this.pnl_ogretmen.Location = new System.Drawing.Point(431, 12);
@@ -216,6 +220,24 @@
             this.pnl_ogretmen.Size = new System.Drawing.Size(520, 426);
             this.pnl_ogretmen.TabIndex = 3;
             this.pnl_ogretmen.Visible = false;
+            // 
+            // txt_ogretmen_branch
+            // 
+            this.txt_ogretmen_branch.Location = new System.Drawing.Point(178, 302);
+            this.txt_ogretmen_branch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_ogretmen_branch.Name = "txt_ogretmen_branch";
+            this.txt_ogretmen_branch.Size = new System.Drawing.Size(226, 26);
+            this.txt_ogretmen_branch.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(101, 302);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Branş:";
             // 
             // btn_pnl_ogrenci
             // 
@@ -260,12 +282,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 582);
-            this.Controls.Add(this.pnl_ogrenci);
             this.Controls.Add(this.pnl_ogretmen);
             this.Controls.Add(this.btn_giris);
             this.Controls.Add(this.btn_pnl_ogretmen);
             this.Controls.Add(this.btn_pnl_ogrenci);
             this.Controls.Add(this.btn_kayit);
+            this.Controls.Add(this.pnl_ogrenci);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -301,6 +323,8 @@
         private System.Windows.Forms.Button btn_pnl_ogrenci;
         private System.Windows.Forms.Button btn_pnl_ogretmen;
         private System.Windows.Forms.Panel pnl_ogrenci;
+        private System.Windows.Forms.TextBox txt_ogretmen_branch;
+        private System.Windows.Forms.Label label8;
     }
 }
 

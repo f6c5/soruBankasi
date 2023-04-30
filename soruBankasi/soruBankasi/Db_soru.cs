@@ -61,7 +61,7 @@ namespace soruBankasi
                     {
                         if (reader.Read())
                         {
-                            ogretmen = new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass"));
+                            ogretmen = new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass"), reader.GetString("branch"));
                         }
                         else
                         {
@@ -107,7 +107,7 @@ namespace soruBankasi
         }
         public void addOgretmen(Ogretmen ogretmen)
         {
-            string query = "INSERT INTO tbl_ogretmenler (name, no, pass) VALUES (@name, @no, @pass)";
+            string query = "INSERT INTO tbl_ogretmenler (name, no, pass,branch) VALUES (@name, @no, @pass, @branch)";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -119,6 +119,7 @@ namespace soruBankasi
                     command.Parameters.AddWithValue("@name", ogretmen.getName());
                     command.Parameters.AddWithValue("@no", ogretmen.getNo());
                     command.Parameters.AddWithValue("@pass", ogretmen.getSifre());
+                    command.Parameters.AddWithValue("@branch", ogretmen.getBranch());
 
                     int affectedRows = command.ExecuteNonQuery();
 
@@ -150,7 +151,7 @@ namespace soruBankasi
                     {
                         while (reader.Read())
                         {
-                            ogretmenler.Add(new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass")));
+                            ogretmenler.Add(new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass"), reader.GetString("branch")));
                         }
                     }
                 }
@@ -225,7 +226,7 @@ namespace soruBankasi
                     {
                         if (reader.Read())
                         {
-                            return new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass"));
+                            return new Ogretmen(reader.GetInt32("id"), reader.GetString("name"), reader.GetString("no"), reader.GetString("pass"), reader.GetString("branch"));
                         }
                         else
                         {
@@ -389,50 +390,7 @@ namespace soruBankasi
             return sinavlar;
 
         }
-        public List<SinavK> getSinavlar(DateTime sinav_tarihi)
-        {
-            List<SinavK> sinavlar = new List<SinavK>();
 
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_sinav HAVING sinav_tarihi > @sinav_tarihi ", connection))
-                {
-                    command.Parameters.AddWithValue("@sinav_tarihi", sinav_tarihi);
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            sinavlar.Add(new Sinav(reader.GetInt32("id"), reader.GetInt32("ogretmen_id"), reader.GetString("sinav_adi"), reader.GetDateTime("sinav_tarihi")));
-                        }
-                    }
-                }
-
-                foreach (SinavK sinav in sinavlar)
-                {
-                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_soru HAVING sinav_id= @sinav_id ", connection))
-                    {
-                        command.Parameters.AddWithValue("@sinav_id", sinav.getId());
-
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            List<Soru> sorular = new List<Soru>();
-                            while (reader.Read())
-                            {
-                                sorular.Add(new Soru(reader.GetInt32("id"), reader.GetInt32("sinav_id"), reader.GetString("metin"), reader.GetString("a"), reader.GetString("b"), reader.GetString("c"), reader.GetString("d"), reader.GetString("e"), reader.GetString("cevap")));
-                            }
-                            sinav.setSinavSorulari(sorular);
-                        }
-                    }
-                }
-
-                connection.Close();
-            }
-            return sinavlar;
-
-        }
         public void addSinav(string sinavAdi, int ogretmenId, DateTime sinavTarihi)
         {
             string query = "INSERT INTO tbl_sinav (ogretmen_id, sinav_adi, sinav_tarihi) VALUES (@ogretmen_id, @sinav_adi, @sinav_tarihi)";
@@ -576,7 +534,75 @@ namespace soruBankasi
             }
         }
 
-        //***********************          notlar         **************************
+        //***********************        öğrenci sıınavları     ************************
+        public List<Sinav> getSinavlar()
+        {
+            List<Sinav> sinavlar = new List<Sinav>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_sinav", connection))
+                {
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            sinavlar.Add(new Sinav(reader.GetInt32("id"), reader.GetInt32("ogretmen_id"), reader.GetString("sinav_adi"), reader.GetDateTime("sinav_tarihi")));
+                        }
+                    }
+                }
+
+                foreach (Sinav sinav in sinavlar)
+                {
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_soru HAVING sinav_id= @sinav_id ", connection))
+                    {
+                        command.Parameters.AddWithValue("@sinav_id", sinav.getId());
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Soru> sorular = new List<Soru>();
+                            while (reader.Read())
+                            {
+                                sorular.Add(new Soru(reader.GetInt32("id"), reader.GetInt32("sinav_id"), reader.GetString("metin"), reader.GetString("a"), reader.GetString("b"), reader.GetString("c"), reader.GetString("d"), reader.GetString("e"), reader.GetString("cevap")));
+                            }
+                            sinav.setSinavSorulari(sorular);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+            return sinavlar;
+
+        }
+        public void setCevap(int soru_id,char cevap)
+        {
+            if (cevap != null)
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO tbl_ogrenci_cevap (ogrenci_id, soru_id, cevap) VALUES (@ogrenci_id, @soru_id, @cevap)";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@soru_id", soru_id);
+                        command.Parameters.AddWithValue("ogrenci_id", Data.DOgrenci.getId());
+                        command.Parameters.AddWithValue("@cevap", cevap);
+
+                        int affectedRows = command.ExecuteNonQuery();
+                        if (affectedRows <= 0)
+                        {
+                            MessageBox.Show("Cevap Kaydedilemedi", "DİKKAT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        
+                    }
+                }
+            }
+        }
 
     }
 }

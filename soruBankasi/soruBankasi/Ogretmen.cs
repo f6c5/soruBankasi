@@ -12,20 +12,25 @@ namespace soruBankasi
         private string name;
         private string no;
         private string sifre;
+        private string branch;
+       
+       
 
-        public Ogretmen( string name, string no, string sifre)
+        public Ogretmen( string name, string no, string sifre, string branch )
         {
             this.name = name;
             this.no = no;
             this.sifre = sifre;
+            this.branch = branch;
         }
 
-        public Ogretmen(int id,string name, string no, string sifre)
+        public Ogretmen(int id,string name, string no, string sifre, string branch)
         {
             this.id = id;
             this.name = name;
             this.no = no;
             this.sifre = sifre;
+            this.branch = branch;
         }
 
         public string getName()
@@ -45,6 +50,10 @@ namespace soruBankasi
         public int getId()
         {
             return this.id;
+        }
+        public string getBranch()
+        {
+            return this.branch;
         }
 
         public void setName(string name)

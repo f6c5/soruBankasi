@@ -34,10 +34,6 @@ namespace soruBankasi
             openChildForm(new FrmSinavList());
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-
-        }
 
         Form activeForm;
 
@@ -61,6 +57,15 @@ namespace soruBankasi
         private void FrmOgretmen_FormClosed(object sender, FormClosedEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Data.DOgretmen = null;
+            Form frm1 = new Form1();
+            frm1.Show();
+            this.Hide();
+
         }
     }
 }

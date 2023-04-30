@@ -18,6 +18,7 @@ namespace soruBankasi
         private string e;
         private string cevap;
 
+        public Soru() { }
         public Soru(int sinavId) { this.sinavId = sinavId; }
 
         public Soru(int id, int sinavId, string metin, string a, string b, string c, string d, string e, string cevap)

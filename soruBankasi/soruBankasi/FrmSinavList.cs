@@ -117,7 +117,6 @@ namespace soruBankasi
                 if (btn_edit.Text == "Ekle")
                 {
                     Soru yeniSoru = new Soru(sinavlarim[cb_exam.SelectedIndex].getId());
-                    MessageBox.Show(txt_question.Text);
                     yeniSoru.setMetin(txt_question.Text);
                     yeniSoru.setA(txt_a.Text);
                     yeniSoru.setB(txt_b.Text);

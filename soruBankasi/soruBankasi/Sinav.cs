@@ -14,6 +14,8 @@ namespace soruBankasi
         private DateTime sinavTarihi;
         private List<Soru> sinavSorulari;
 
+        public Sinav() { }
+
         public Sinav(int id, int ogretmenId, string sinavAdi, DateTime sinavTarihi)
         {
             this.id = id;

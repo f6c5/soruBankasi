@@ -81,6 +81,7 @@
             this.rb_e.TabStop = true;
             this.rb_e.Text = "e";
             this.rb_e.UseVisualStyleBackColor = true;
+            this.rb_e.CheckedChanged += new System.EventHandler(this.rb_e_CheckedChanged);
             // 
             // lbl_soru
             // 
@@ -105,6 +106,7 @@
             this.rb_d.TabStop = true;
             this.rb_d.Text = "d";
             this.rb_d.UseVisualStyleBackColor = true;
+            this.rb_d.CheckedChanged += new System.EventHandler(this.rb_d_CheckedChanged);
             // 
             // rb_a
             // 
@@ -117,6 +119,7 @@
             this.rb_a.TabStop = true;
             this.rb_a.Text = "a";
             this.rb_a.UseVisualStyleBackColor = true;
+            this.rb_a.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
             // 
             // rb_c
             // 
@@ -129,6 +132,7 @@
             this.rb_c.TabStop = true;
             this.rb_c.Text = "c";
             this.rb_c.UseVisualStyleBackColor = true;
+            this.rb_c.CheckedChanged += new System.EventHandler(this.rb_c_CheckedChanged);
             // 
             // rb_b
             // 
@@ -141,6 +145,7 @@
             this.rb_b.TabStop = true;
             this.rb_b.Text = "b";
             this.rb_b.UseVisualStyleBackColor = true;
+            this.rb_b.CheckedChanged += new System.EventHandler(this.rb_b_CheckedChanged);
             // 
             // panel3
             // 
@@ -169,9 +174,9 @@
             this.lbl_soru_no.AutoSize = true;
             this.lbl_soru_no.Location = new System.Drawing.Point(48, 19);
             this.lbl_soru_no.Name = "lbl_soru_no";
-            this.lbl_soru_no.Size = new System.Drawing.Size(45, 24);
+            this.lbl_soru_no.Size = new System.Drawing.Size(35, 24);
             this.lbl_soru_no.TabIndex = 5;
-            this.lbl_soru_no.Text = "0/10";
+            this.lbl_soru_no.Text = "0/0";
             this.lbl_soru_no.Visible = false;
             // 
             // btn_sonraki

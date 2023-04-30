@@ -50,7 +50,7 @@ namespace soruBankasi
 
             if (isOgretmen == true)
             {
-                db_Soru.addOgretmen(new Ogretmen(txt_ogretmen_ad.Text, txt_ogretmen_no.Text, txt_ogretmen_sifre.Text));
+                db_Soru.addOgretmen(new Ogretmen(txt_ogretmen_ad.Text, txt_ogretmen_no.Text, txt_ogretmen_sifre.Text,txt_ogretmen_branch.Text));
             }
             else if (isOgretmen == false)
             {

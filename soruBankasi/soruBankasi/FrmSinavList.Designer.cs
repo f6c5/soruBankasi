@@ -412,8 +412,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cb_question);
             this.Controls.Add(this.cb_exam);
-            this.Controls.Add(this.pnl_add_exam);
             this.Controls.Add(this.pnl_question_data);
+            this.Controls.Add(this.pnl_add_exam);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
