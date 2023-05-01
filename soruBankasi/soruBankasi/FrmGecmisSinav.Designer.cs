@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_e = new System.Windows.Forms.Label();
+            this.lbl_d = new System.Windows.Forms.Label();
+            this.lbl_c = new System.Windows.Forms.Label();
+            this.lbl_b = new System.Windows.Forms.Label();
+            this.lbl_a = new System.Windows.Forms.Label();
             this.lbl_soru = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cb_exam = new System.Windows.Forms.ComboBox();
@@ -37,11 +42,6 @@
             this.btn_prev = new System.Windows.Forms.Button();
             this.btn_next = new System.Windows.Forms.Button();
             this.btn_browse = new System.Windows.Forms.Button();
-            this.lbl_a = new System.Windows.Forms.Label();
-            this.lbl_b = new System.Windows.Forms.Label();
-            this.lbl_c = new System.Windows.Forms.Label();
-            this.lbl_d = new System.Windows.Forms.Label();
-            this.lbl_e = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,71 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 538);
             this.panel2.TabIndex = 12;
+            // 
+            // lbl_e
+            // 
+            this.lbl_e.AutoSize = true;
+            this.lbl_e.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_e.Location = new System.Drawing.Point(38, 430);
+            this.lbl_e.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_e.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.lbl_e.Name = "lbl_e";
+            this.lbl_e.Size = new System.Drawing.Size(23, 24);
+            this.lbl_e.TabIndex = 24;
+            this.lbl_e.Text = "E";
+            this.lbl_e.Visible = false;
+            // 
+            // lbl_d
+            // 
+            this.lbl_d.AutoSize = true;
+            this.lbl_d.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_d.Location = new System.Drawing.Point(38, 357);
+            this.lbl_d.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_d.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.lbl_d.Name = "lbl_d";
+            this.lbl_d.Size = new System.Drawing.Size(23, 24);
+            this.lbl_d.TabIndex = 24;
+            this.lbl_d.Text = "D";
+            this.lbl_d.Visible = false;
+            // 
+            // lbl_c
+            // 
+            this.lbl_c.AutoSize = true;
+            this.lbl_c.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_c.Location = new System.Drawing.Point(38, 284);
+            this.lbl_c.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_c.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.lbl_c.Name = "lbl_c";
+            this.lbl_c.Size = new System.Drawing.Size(23, 24);
+            this.lbl_c.TabIndex = 24;
+            this.lbl_c.Text = "C";
+            this.lbl_c.Visible = false;
+            // 
+            // lbl_b
+            // 
+            this.lbl_b.AutoSize = true;
+            this.lbl_b.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_b.Location = new System.Drawing.Point(38, 211);
+            this.lbl_b.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_b.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.lbl_b.Name = "lbl_b";
+            this.lbl_b.Size = new System.Drawing.Size(22, 24);
+            this.lbl_b.TabIndex = 24;
+            this.lbl_b.Text = "B";
+            this.lbl_b.Visible = false;
+            // 
+            // lbl_a
+            // 
+            this.lbl_a.AutoSize = true;
+            this.lbl_a.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_a.Location = new System.Drawing.Point(38, 138);
+            this.lbl_a.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_a.MaximumSize = new System.Drawing.Size(1000, 0);
+            this.lbl_a.Name = "lbl_a";
+            this.lbl_a.Size = new System.Drawing.Size(23, 24);
+            this.lbl_a.TabIndex = 24;
+            this.lbl_a.Text = "A";
+            this.lbl_a.Visible = false;
             // 
             // lbl_soru
             // 
@@ -89,6 +154,7 @@
             // 
             // cb_exam
             // 
+            this.cb_exam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cb_exam.FormattingEnabled = true;
             this.cb_exam.Location = new System.Drawing.Point(137, 16);
             this.cb_exam.Name = "cb_exam";
@@ -100,6 +166,7 @@
             // lbl_not
             // 
             this.lbl_not.AutoSize = true;
+            this.lbl_not.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_not.Location = new System.Drawing.Point(425, 19);
             this.lbl_not.Name = "lbl_not";
             this.lbl_not.Size = new System.Drawing.Size(39, 24);
@@ -110,6 +177,7 @@
             // lbl_soru_no
             // 
             this.lbl_soru_no.AutoSize = true;
+            this.lbl_soru_no.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_soru_no.Location = new System.Drawing.Point(48, 19);
             this.lbl_soru_no.Name = "lbl_soru_no";
             this.lbl_soru_no.Size = new System.Drawing.Size(35, 24);
@@ -119,6 +187,7 @@
             // 
             // btn_prev
             // 
+            this.btn_prev.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_prev.Location = new System.Drawing.Point(605, 12);
             this.btn_prev.Name = "btn_prev";
             this.btn_prev.Size = new System.Drawing.Size(102, 39);
@@ -130,6 +199,7 @@
             // 
             // btn_next
             // 
+            this.btn_next.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_next.Location = new System.Drawing.Point(713, 12);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(102, 39);
@@ -141,6 +211,7 @@
             // 
             // btn_browse
             // 
+            this.btn_browse.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_browse.Location = new System.Drawing.Point(821, 12);
             this.btn_browse.Name = "btn_browse";
             this.btn_browse.Size = new System.Drawing.Size(167, 39);
@@ -148,71 +219,6 @@
             this.btn_browse.Text = "İncele";
             this.btn_browse.UseVisualStyleBackColor = true;
             this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
-            // 
-            // lbl_a
-            // 
-            this.lbl_a.AutoSize = true;
-            this.lbl_a.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_a.Location = new System.Drawing.Point(38, 138);
-            this.lbl_a.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_a.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.lbl_a.Name = "lbl_a";
-            this.lbl_a.Size = new System.Drawing.Size(23, 24);
-            this.lbl_a.TabIndex = 24;
-            this.lbl_a.Text = "A";
-            this.lbl_a.Visible = false;
-            // 
-            // lbl_b
-            // 
-            this.lbl_b.AutoSize = true;
-            this.lbl_b.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_b.Location = new System.Drawing.Point(38, 211);
-            this.lbl_b.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_b.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.lbl_b.Name = "lbl_b";
-            this.lbl_b.Size = new System.Drawing.Size(22, 24);
-            this.lbl_b.TabIndex = 24;
-            this.lbl_b.Text = "B";
-            this.lbl_b.Visible = false;
-            // 
-            // lbl_c
-            // 
-            this.lbl_c.AutoSize = true;
-            this.lbl_c.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_c.Location = new System.Drawing.Point(38, 284);
-            this.lbl_c.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_c.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.lbl_c.Name = "lbl_c";
-            this.lbl_c.Size = new System.Drawing.Size(23, 24);
-            this.lbl_c.TabIndex = 24;
-            this.lbl_c.Text = "C";
-            this.lbl_c.Visible = false;
-            // 
-            // lbl_d
-            // 
-            this.lbl_d.AutoSize = true;
-            this.lbl_d.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_d.Location = new System.Drawing.Point(38, 357);
-            this.lbl_d.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_d.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.lbl_d.Name = "lbl_d";
-            this.lbl_d.Size = new System.Drawing.Size(23, 24);
-            this.lbl_d.TabIndex = 24;
-            this.lbl_d.Text = "D";
-            this.lbl_d.Visible = false;
-            // 
-            // lbl_e
-            // 
-            this.lbl_e.AutoSize = true;
-            this.lbl_e.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_e.Location = new System.Drawing.Point(38, 430);
-            this.lbl_e.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_e.MaximumSize = new System.Drawing.Size(1000, 0);
-            this.lbl_e.Name = "lbl_e";
-            this.lbl_e.Size = new System.Drawing.Size(23, 24);
-            this.lbl_e.TabIndex = 24;
-            this.lbl_e.Text = "E";
-            this.lbl_e.Visible = false;
             // 
             // FrmGecmisSinav
             // 
@@ -223,7 +229,7 @@
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FrmGecmisSinav";
             this.Text = "FrmGecmisSinav";
             this.Load += new System.EventHandler(this.FrmGecmisSinav_Load);

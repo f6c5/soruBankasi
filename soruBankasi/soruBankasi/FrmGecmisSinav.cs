@@ -35,7 +35,30 @@ namespace soruBankasi
 
         private void btn_browse_Click(object sender, EventArgs e)
         {
+            refreshExam();
+            if (btn_browse.Text == "İncele" && sorular.Count() > 0)
+            {
 
+                soru_no = 0;
+                if (sinavlar.Count() > 0)
+                {
+                    lbl_soru.Visible = true;
+                    lbl_a.Visible = true;
+                    lbl_b.Visible = true;
+                    lbl_c.Visible = true;
+                    lbl_d.Visible = true;
+                    lbl_e.Visible = true;
+                    lbl_soru_no.Visible = true;
+                    lbl_not.Visible = true;
+                    btn_next.Visible = true;
+                    btn_prev.Visible = true;
+                    refreshQuestion();
+                }
+                else
+                {
+                    MessageBox.Show("aktif sınavınız yok");
+                }
+            }
         }
 
         private void btn_next_Click(object sender, EventArgs e)
@@ -66,7 +89,7 @@ namespace soruBankasi
 
         private void refreshExam()
         {
-            sinavlar = db.getAktifSinavlar(Data.DOgrenci.getId());
+            sinavlar = db.getGecmisSinavlar();
             cb_exam.Items.Clear();
             foreach (Sinav sinav in sinavlar)
             {
@@ -83,6 +106,46 @@ namespace soruBankasi
             lbl_c.Text = sorular[soru_no].getC();
             lbl_d.Text = sorular[soru_no].getD();
             lbl_e.Text = sorular[soru_no].getE();
+            switch (sorular[soru_no].getCevap())
+            {
+                case "A":
+                    lbl_a.ForeColor = Color.Green;
+                    lbl_b.ForeColor = Color.Black;
+                    lbl_c.ForeColor = Color.Black;
+                    lbl_d.ForeColor = Color.Black;
+                    lbl_e.ForeColor = Color.Black;
+                    break;
+                case "B":
+                    lbl_a.ForeColor = Color.Black;
+                    lbl_b.ForeColor = Color.Green;
+                    lbl_c.ForeColor = Color.Black;
+                    lbl_d.ForeColor = Color.Black;
+                    lbl_e.ForeColor = Color.Black;
+                    break;
+                case "C":
+                    lbl_a.ForeColor = Color.Black;
+                    lbl_b.ForeColor = Color.Black;
+                    lbl_c.ForeColor = Color.Green;
+                    lbl_d.ForeColor = Color.Black;
+                    lbl_e.ForeColor = Color.Black;
+                    break;
+                case "D":
+                    lbl_a.ForeColor = Color.Black;
+                    lbl_b.ForeColor = Color.Black;
+                    lbl_c.ForeColor = Color.Black;
+                    lbl_d.ForeColor = Color.Green;
+                    lbl_e.ForeColor = Color.Black;
+                    break;
+                case "E":
+                    lbl_a.ForeColor = Color.Black;
+                    lbl_b.ForeColor = Color.Black;
+                    lbl_c.ForeColor = Color.Black;
+                    lbl_d.ForeColor = Color.Black;
+                    lbl_e.ForeColor = Color.Green;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

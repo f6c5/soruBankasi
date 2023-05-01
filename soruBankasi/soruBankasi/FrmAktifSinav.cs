@@ -30,7 +30,7 @@ namespace soruBankasi
         private void btn_basla_bitir_Click(object sender, EventArgs e)
         {
             refreshExam();
-            if (btn_basla_bitir.Text == "Başla")
+            if (btn_basla_bitir.Text == "Başla" && sorular.Count() > 0)
             {
                 soru_no = 0;
                 if (sinavlar.Count() > 0)
@@ -56,7 +56,7 @@ namespace soruBankasi
             }
             else
             {
-                while(soru_no < sorular.Count())
+                while (soru_no < sorular.Count())
                 {
                     saveAnswer();
                     soru_no++;

@@ -603,17 +603,17 @@ namespace soruBankasi
             return sinavlar;
 
         }
-        public List<Sinav> getGecmisSinavlar(int ogrenci_id)
+        public List<Sinav> getGecmisSinavlar()
         {
             List<Sinav> sinavlar = new List<Sinav>();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT * FROM tbl_sinav WHERE sinav_tarihi < @tarih && id IN (SELECT sinav_id FROM tbl_ogrenci_cevap WHERE ogrenci_id = @ogrenci_id) ";
+                string query = "SELECT * FROM tbl_sinav WHERE sinav_tarihi < @tarih || id IN (SELECT sinav_id FROM tbl_ogrenci_cevap WHERE ogrenci_id = @ogrenci_id)";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@ogrenci_id", ogrenci_id);
+                    command.Parameters.AddWithValue("@ogrenci_id", Data.DOgrenci.getId());
                     command.Parameters.AddWithValue("@tarih", DateTime.Now);
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
