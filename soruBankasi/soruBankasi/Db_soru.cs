@@ -542,10 +542,35 @@ namespace soruBankasi
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-
-                using (MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_sinav", connection))
+                string query = "SELECT * FROM tbl_sinav";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            sinavlar.Add(new Sinav(reader.GetInt32("id"), reader.GetInt32("ogretmen_id"), reader.GetString("sinav_adi"), reader.GetDateTime("sinav_tarihi")));
+                        }
+                    }
+                }
 
+                connection.Close();
+            }
+            return sinavlar;
+
+        }
+        public List<Sinav> getAktifSinavlar(int ogrenci_id)
+        {
+            List<Sinav> sinavlar = new List<Sinav>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM tbl_sinav WHERE sinav_tarihi > @tarih && id NOT IN (SELECT sinav_id FROM tbl_ogrenci_cevap WHERE ogrenci_id = @ogrenci_id) ";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ogrenci_id", ogrenci_id);
+                    command.Parameters.AddWithValue("@tarih", DateTime.Now);
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -578,7 +603,52 @@ namespace soruBankasi
             return sinavlar;
 
         }
-        public void setCevap(int soru_id,char cevap)
+        public List<Sinav> getGecmisSinavlar(int ogrenci_id)
+        {
+            List<Sinav> sinavlar = new List<Sinav>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM tbl_sinav WHERE sinav_tarihi < @tarih && id IN (SELECT sinav_id FROM tbl_ogrenci_cevap WHERE ogrenci_id = @ogrenci_id) ";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ogrenci_id", ogrenci_id);
+                    command.Parameters.AddWithValue("@tarih", DateTime.Now);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            sinavlar.Add(new Sinav(reader.GetInt32("id"), reader.GetInt32("ogretmen_id"), reader.GetString("sinav_adi"), reader.GetDateTime("sinav_tarihi")));
+                        }
+                    }
+                }
+
+                foreach (Sinav sinav in sinavlar)
+                {
+                    using (MySqlCommand command = new MySqlCommand("SELECT * FROM db_soru.tbl_soru HAVING sinav_id= @sinav_id ", connection))
+                    {
+                        command.Parameters.AddWithValue("@sinav_id", sinav.getId());
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Soru> sorular = new List<Soru>();
+                            while (reader.Read())
+                            {
+                                sorular.Add(new Soru(reader.GetInt32("id"), reader.GetInt32("sinav_id"), reader.GetString("metin"), reader.GetString("a"), reader.GetString("b"), reader.GetString("c"), reader.GetString("d"), reader.GetString("e"), reader.GetString("cevap")));
+                            }
+                            sinav.setSinavSorulari(sorular);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+            return sinavlar;
+
+        }
+
+        public void setCevap(int sinav_id, int soru_id, char cevap)
         {
             if (cevap != null)
             {
@@ -586,9 +656,10 @@ namespace soruBankasi
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO tbl_ogrenci_cevap (ogrenci_id, soru_id, cevap) VALUES (@ogrenci_id, @soru_id, @cevap)";
+                    string query = "INSERT INTO tbl_ogrenci_cevap (ogrenci_id,sinav_id, soru_id, cevap) VALUES (@ogrenci_id, @sinav_id, @soru_id, @cevap)";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@sinav_id", sinav_id);
                         command.Parameters.AddWithValue("@soru_id", soru_id);
                         command.Parameters.AddWithValue("ogrenci_id", Data.DOgrenci.getId());
                         command.Parameters.AddWithValue("@cevap", cevap);
@@ -598,7 +669,7 @@ namespace soruBankasi
                         {
                             MessageBox.Show("Cevap Kaydedilemedi", "DİKKAT", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        
+
                     }
                 }
             }

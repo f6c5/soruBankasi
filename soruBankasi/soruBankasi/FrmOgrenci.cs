@@ -31,12 +31,15 @@ namespace soruBankasi
 
         private void btn_gecmis_sinav_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FrmGecmisSinav());
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-
+            Data.DOgrenci = null;
+            Form form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
         public void openChildForm(Form childForm)
         {

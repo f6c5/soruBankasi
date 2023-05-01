@@ -81,6 +81,7 @@
             this.rb_e.TabStop = true;
             this.rb_e.Text = "e";
             this.rb_e.UseVisualStyleBackColor = true;
+            this.rb_e.Visible = false;
             this.rb_e.CheckedChanged += new System.EventHandler(this.rb_e_CheckedChanged);
             // 
             // lbl_soru
@@ -94,6 +95,7 @@
             this.lbl_soru.Size = new System.Drawing.Size(55, 24);
             this.lbl_soru.TabIndex = 24;
             this.lbl_soru.Text = "Soru:";
+            this.lbl_soru.Visible = false;
             // 
             // rb_d
             // 
@@ -106,6 +108,7 @@
             this.rb_d.TabStop = true;
             this.rb_d.Text = "d";
             this.rb_d.UseVisualStyleBackColor = true;
+            this.rb_d.Visible = false;
             this.rb_d.CheckedChanged += new System.EventHandler(this.rb_d_CheckedChanged);
             // 
             // rb_a
@@ -119,6 +122,7 @@
             this.rb_a.TabStop = true;
             this.rb_a.Text = "a";
             this.rb_a.UseVisualStyleBackColor = true;
+            this.rb_a.Visible = false;
             this.rb_a.CheckedChanged += new System.EventHandler(this.rb_a_CheckedChanged);
             // 
             // rb_c
@@ -132,6 +136,7 @@
             this.rb_c.TabStop = true;
             this.rb_c.Text = "c";
             this.rb_c.UseVisualStyleBackColor = true;
+            this.rb_c.Visible = false;
             this.rb_c.CheckedChanged += new System.EventHandler(this.rb_c_CheckedChanged);
             // 
             // rb_b
@@ -145,6 +150,7 @@
             this.rb_b.TabStop = true;
             this.rb_b.Text = "b";
             this.rb_b.UseVisualStyleBackColor = true;
+            this.rb_b.Visible = false;
             this.rb_b.CheckedChanged += new System.EventHandler(this.rb_b_CheckedChanged);
             // 
             // panel3

@@ -107,6 +107,12 @@
     <Compile Include="FrmAktifSinav.Designer.cs">
       <DependentUpon>FrmAktifSinav.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGecmisSinav.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGecmisSinav.Designer.cs">
+      <DependentUpon>FrmGecmisSinav.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOgrenci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAktifSinav.resx">
       <DependentUpon>FrmAktifSinav.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGecmisSinav.resx">
+      <DependentUpon>FrmGecmisSinav.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOgrenci.resx">
       <DependentUpon>FrmOgrenci.cs</DependentUpon>
