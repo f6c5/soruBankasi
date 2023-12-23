@@ -76,7 +76,7 @@ namespace soruBankasi
                 }
                 else
                 {
-                    MessageBox.Show("böyle bir öğretmen kayıtlı değil");
+                    MessageBox.Show("Böyle bir öğretmen kayıtlı değil");
                 }
             }
             else if (isOgretmen == false)
